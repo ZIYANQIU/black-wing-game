@@ -1,0 +1,38 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# IDE / editor generated
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Visual Studio / Rider / generated solution files
+*.csproj
+*.sln
+*.slnx
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity crash / memory files
+sysinfo.txt
+*.stacktrace
+
+# Unity generated test results
+TestResults/
+
+# Addressables / generated streaming data if used later
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
