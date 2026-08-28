@@ -7,8 +7,10 @@ public class PrototypeHotspot : MonoBehaviour
     [TextArea]
     [SerializeField] private string message;
 
+    [SerializeField] private bool canCollect;
+
     public void Interact()
     {
-        feedbackUI.ShowMessage(message);
+        feedbackUI.ShowMessage(message, canCollect);
     }
 }
