@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 50611791}
   - component: {fileID: 50611790}
   - component: {fileID: 50611789}
+  - component: {fileID: 50611792}
   m_Layer: 0
   m_Name: Hotspot_NPC
   m_TagString: Untagged
@@ -155,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 145.6, y: -56.6}
+  m_AnchoredPosition: {x: 492, y: -224}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50611789
@@ -201,7 +202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 50611790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 50611792}
+        m_TargetAssemblyTypeName: PrototypeHotspot, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &50611790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +253,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50611787}
   m_CullTransparentMesh: 1
+--- !u!114 &50611792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50611787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d80ae1b2f5a94eb084214dfe40376c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrototypeHotspot
+  feedbackUI: {fileID: 896588853}
+  message: Something feels wrong here.
 --- !u!1 &167588191
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +568,7 @@ GameObject:
   - component: {fileID: 259359503}
   - component: {fileID: 259359502}
   - component: {fileID: 259359501}
+  - component: {fileID: 259359504}
   m_Layer: 0
   m_Name: Hotspot_Door
   m_TagString: Untagged
@@ -565,7 +593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 181.9, y: 51}
+  m_AnchoredPosition: {x: 187, y: 87}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259359501
@@ -611,7 +639,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 259359502}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 259359504}
+        m_TargetAssemblyTypeName: PrototypeHotspot, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &259359502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,6 +690,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259359499}
   m_CullTransparentMesh: 1
+--- !u!114 &259359504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259359499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d80ae1b2f5a94eb084214dfe40376c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrototypeHotspot
+  feedbackUI: {fileID: 896588853}
+  message: The door is locked.
 --- !u!1 &411605035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1712,7 @@ GameObject:
   - component: {fileID: 1602633467}
   - component: {fileID: 1602633466}
   - component: {fileID: 1602633465}
+  - component: {fileID: 1602633468}
   m_Layer: 0
   m_Name: Hotspot_Feather
   m_TagString: Untagged
@@ -1682,7 +1737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -292, y: -171}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602633465
@@ -1728,7 +1783,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1602633466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1602633468}
+        m_TargetAssemblyTypeName: PrototypeHotspot, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1602633466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1767,6 +1834,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602633463}
   m_CullTransparentMesh: 1
+--- !u!114 &1602633468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602633463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d80ae1b2f5a94eb084214dfe40376c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrototypeHotspot
+  feedbackUI: {fileID: 896588853}
+  message: A bloodstained black feather.
 --- !u!1 &1974612892
 GameObject:
   m_ObjectHideFlags: 0
