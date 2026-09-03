@@ -3,17 +3,37 @@ using UnityEngine;
 public class ClueCollector : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
-    [SerializeField] private GameObject featherHotspot;
     [SerializeField] private InteractionFeedbackUI feedbackUI;
 
-    public void CollectFeather()
-    {
-        gameState.CollectBlackFeather();
+    private ItemData pendingItem;
+    private GameObject pendingHotspotObject;
 
-        featherHotspot.SetActive(false);
+    public void PrepareCollectible(ItemData item, GameObject hotspotObject)
+    {
+        pendingItem = item;
+        pendingHotspotObject = hotspotObject;
+    }
+
+    public void CollectPendingItem()
+    {
+        if (pendingItem == null)
+        {
+            Debug.LogWarning("CollectPendingItem called but no item is pending.");
+            return;
+        }
+
+        gameState.CollectItem(pendingItem.item_id);
+
+        if (pendingItem.hide_after_collect && pendingHotspotObject != null)
+        {
+            pendingHotspotObject.SetActive(false);
+        }
 
         feedbackUI.HideMessage();
 
-        Debug.Log("Black Feather collected.");
+        Debug.Log($"{pendingItem.name} collected.");
+
+        pendingItem = null;
+        pendingHotspotObject = null;
     }
 }

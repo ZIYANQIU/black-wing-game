@@ -1090,7 +1090,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClueCollector
   gameState: {fileID: 1838948913}
-  featherHotspot: {fileID: 1602633463}
   feedbackUI: {fileID: 896588853}
 --- !u!4 &484500878
 Transform:
@@ -1847,7 +1846,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 484500877}
         m_TargetAssemblyTypeName: ClueCollector, Assembly-CSharp
-        m_MethodName: CollectFeather
+        m_MethodName: CollectPendingItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2034,6 +2033,7 @@ GameObject:
   - component: {fileID: 1602633466}
   - component: {fileID: 1602633465}
   - component: {fileID: 1602633468}
+  - component: {fileID: 1602633469}
   m_Layer: 0
   m_Name: Hotspot_Feather
   m_TagString: Untagged
@@ -2105,8 +2105,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1602633468}
-        m_TargetAssemblyTypeName: PrototypeHotspot, Assembly-CSharp
+      - m_Target: {fileID: 1602633469}
+        m_TargetAssemblyTypeName: HotspotController, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -2170,6 +2170,22 @@ MonoBehaviour:
   feedbackUI: {fileID: 896588853}
   message: A bloodstained black feather.
   canCollect: 1
+--- !u!114 &1602633469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602633463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0619be7711f4b57bb26b9822b00b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HotspotController
+  hotspotId: hs_black_feather
+  database: {fileID: 1860409860}
+  feedbackUI: {fileID: 896588853}
+  clueCollector: {fileID: 484500877}
 --- !u!1 &1838948912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2239,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860409858}
+  - component: {fileID: 1860409860}
+  - component: {fileID: 1860409859}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -2245,6 +2263,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1860409859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860409857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1da20e808bba47f78ae822bf922c720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameDataLoader
+  npcsJson: {fileID: 4900000, guid: 35096fd4694dc4beeaea735dcd39d4e0, type: 3}
+  itemsJson: {fileID: 4900000, guid: cfe03b4670eac4d7ca7211f19dfb1d17, type: 3}
+  mapsJson: {fileID: 4900000, guid: 46d6794a7859b45b0999bc36c7a8c004, type: 3}
+  viewsJson: {fileID: 4900000, guid: a301141d312234148955f89da4ad516f, type: 3}
+  hotspotsJson: {fileID: 4900000, guid: df22f5a9d4f6646ebbdbab3fec515ae5, type: 3}
+  storyStepsJson: {fileID: 4900000, guid: 18576dc0a8eb94448bf543a0f53a0cfa, type: 3}
+--- !u!114 &1860409860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860409857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e3c167b54a54bc487d9874231c0633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameDatabase
 --- !u!1 &1974612892
 GameObject:
   m_ObjectHideFlags: 0
