@@ -1,0 +1,14 @@
+{
+  "views": [
+    {
+      "view_id": "view_club_hall",
+      "map_id": "map_blackwing_club",
+      "background": "bg_club_hall"
+    },
+    {
+      "view_id": "view_club_backstage",
+      "map_id": "map_blackwing_club",
+      "background": "bg_club_backstage"
+    }
+  ]
+}

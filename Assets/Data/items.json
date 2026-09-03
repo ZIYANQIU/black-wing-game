@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "item_id": "item_black_feather",
+      "name": "Black Feather",
+      "desc": "A bloodstained black feather.",
+      "type": "clue",
+      "icon": "icon_black_feather",
+      "collectible": true,
+      "hide_after_collect": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "maps": [
+    {
+      "map_id": "map_blackwing_club",
+      "name": "Blackwing Club",
+      "default_view": "view_club_hall",
+      "desc": "A dim and unsettling village club.",
+      "unlock_condition": {
+        "type": "always"
+      }
+    }
+  ]
+}

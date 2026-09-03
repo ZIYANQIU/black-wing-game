@@ -1,0 +1,40 @@
+{
+  "story_steps": [
+    {
+      "step_id": "step_doctor_intro_001",
+      "type": "dialogue",
+      "speaker_id": "npc_doctor_brook",
+      "text": "You shouldn't be here.",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_doctor_intro_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_doctor_intro_002",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "The doctor glances toward the window.",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_doctor_intro_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_doctor_intro_003",
+      "type": "dialogue",
+      "speaker_id": "npc_doctor_brook",
+      "text": "Leave before someone sees you.",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": null,
+      "is_save": false
+    }
+  ]
+}

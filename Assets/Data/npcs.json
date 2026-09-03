@@ -1,0 +1,11 @@
+{
+  "npcs": [
+    {
+      "npc_id": "npc_doctor_brook",
+      "name": "Dr. Brook",
+      "bust": "bust_doctor_brook",
+      "icon": "icon_doctor_brook",
+      "desc": "The village doctor."
+    }
+  ]
+}

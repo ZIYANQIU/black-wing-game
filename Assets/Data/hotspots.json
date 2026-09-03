@@ -1,0 +1,31 @@
+{
+  "hotspots": [
+    {
+      "hotspot_id": "hs_black_feather",
+      "view_id": "view_club_hall",
+      "type": "item",
+      "target_id": "item_black_feather",
+      "condition": {
+        "type": "always"
+      }
+    },
+    {
+      "hotspot_id": "hs_doctor",
+      "view_id": "view_club_hall",
+      "type": "story",
+      "target_id": "step_doctor_intro_001",
+      "condition": {
+        "type": "always"
+      }
+    },
+    {
+      "hotspot_id": "hs_backstage_door",
+      "view_id": "view_club_hall",
+      "type": "navigation",
+      "target_id": "view_club_backstage",
+      "condition": {
+        "type": "always"
+      }
+    }
+  ]
+}
