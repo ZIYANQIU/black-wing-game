@@ -26,6 +26,15 @@
       "condition": {
         "type": "always"
       }
+    },
+    {
+      "hotspot_id": "hs_torn_letter",
+      "view_id": "view_club_hall",
+      "type": "item",
+      "target_id": "item_torn_letter",
+      "condition": {
+        "type": "always"
+      }
     }
   ]
 }

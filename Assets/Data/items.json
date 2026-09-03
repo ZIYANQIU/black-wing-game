@@ -8,6 +8,15 @@
       "icon": "icon_black_feather",
       "collectible": true,
       "hide_after_collect": true
+    },
+    {
+      "item_id": "item_torn_letter",
+      "name": "Torn Letter",
+      "desc": "A torn piece of paper.",
+      "type": "clue",
+      "icon": "icon_torn_letter",
+      "collectible": true,
+      "hide_after_collect": true
     }
   ]
 }
