@@ -15,7 +15,8 @@
       "type": "story",
       "target_id": "step_doctor_intro_001",
       "condition": {
-        "type": "always"
+        "type": "has_item",
+        "id": "item_black_feather"
       }
     },
     {

@@ -6,6 +6,7 @@ public class HotspotController : MonoBehaviour
     [SerializeField] private GameDatabase database;
     [SerializeField] private InteractionFeedbackUI feedbackUI;
     [SerializeField] private ClueCollector clueCollector;
+    [SerializeField] private ConditionEvaluator conditionEvaluator;
 
     public void Interact()
     {
@@ -14,6 +15,12 @@ public class HotspotController : MonoBehaviour
         if (hotspot == null)
         {
             Debug.LogError($"Hotspot not found: {hotspotId}");
+            return;
+        }
+
+        if (!conditionEvaluator.Evaluate(hotspot.condition))
+        {
+            Debug.Log($"Hotspot {hotspotId} condition not met.");
             return;
         }
 
@@ -33,6 +40,18 @@ public class HotspotController : MonoBehaviour
             {
                 clueCollector.PrepareCollectible(item, gameObject);
             }
+        }
+        else if (hotspot.type == "story")
+        {
+            StoryStepData step = database.GetStoryStep(hotspot.target_id);
+
+            if (step == null)
+            {
+                Debug.LogError($"StoryStep not found: {hotspot.target_id}");
+                return;
+            }
+
+            Debug.Log($"Story triggered: {step.step_id}, text={step.text}");
         }
     }
 }
