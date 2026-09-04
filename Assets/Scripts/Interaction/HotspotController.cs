@@ -18,7 +18,12 @@ public class HotspotController : MonoBehaviour
             return;
         }
 
-        if (!conditionEvaluator.Evaluate(hotspot.condition))
+        Debug.Log($"[DEBUG] Interact() called for {hotspotId}, condition type={hotspot.condition?.type}, id={hotspot.condition?.id}");
+
+        bool conditionResult = conditionEvaluator.Evaluate(hotspot.condition);
+        Debug.Log($"[DEBUG] Evaluate returned: {conditionResult}");
+
+        if (!conditionResult)
         {
             Debug.Log($"Hotspot {hotspotId} condition not met.");
             return;

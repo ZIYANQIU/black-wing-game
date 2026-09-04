@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 50611790}
   - component: {fileID: 50611789}
   - component: {fileID: 50611792}
+  - component: {fileID: 50611793}
   m_Layer: 0
   m_Name: Hotspot_NPC
   m_TagString: Untagged
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -203,8 +204,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 50611792}
-        m_TargetAssemblyTypeName: PrototypeHotspot, Assembly-CSharp
+      - m_Target: {fileID: 50611793}
+        m_TargetAssemblyTypeName: HotspotController, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -268,6 +269,23 @@ MonoBehaviour:
   feedbackUI: {fileID: 896588853}
   message: Something feels wrong here.
   canCollect: 0
+--- !u!114 &50611793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50611787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0619be7711f4b57bb26b9822b00b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HotspotController
+  hotspotId: hs_doctor
+  database: {fileID: 1860409860}
+  feedbackUI: {fileID: 896588853}
+  clueCollector: {fileID: 484500877}
+  conditionEvaluator: {fileID: 1838948915}
 --- !u!1 &111724688
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1563,7 +1581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1682,7 +1700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -603, y: -374}
+  m_AnchoredPosition: {x: -542, y: -0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1223481546
@@ -1701,6 +1719,7 @@ MonoBehaviour:
   database: {fileID: 1860409860}
   feedbackUI: {fileID: 896588853}
   clueCollector: {fileID: 484500877}
+  conditionEvaluator: {fileID: 1838948915}
 --- !u!114 &1223481547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,7 +1748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1979,7 +1998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2241,7 +2260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2353,6 +2372,7 @@ MonoBehaviour:
   database: {fileID: 1860409860}
   feedbackUI: {fileID: 896588853}
   clueCollector: {fileID: 484500877}
+  conditionEvaluator: {fileID: 1838948915}
 --- !u!1 &1838948912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1838948914}
   - component: {fileID: 1838948913}
+  - component: {fileID: 1838948915}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2397,6 +2418,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1838948915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838948912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6740a805c9f4e96875c6460875700d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConditionEvaluator
+  gameState: {fileID: 1838948913}
 --- !u!1 &1860409857
 GameObject:
   m_ObjectHideFlags: 0
