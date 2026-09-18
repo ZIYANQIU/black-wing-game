@@ -1,13 +1,20 @@
+using System;
 using UnityEngine;
 
 public class ViewManager : MonoBehaviour
 {
+    [Serializable]
+    public class ViewContainerBinding
+    {
+        public string viewId;
+        public GameObject container;
+    }
+
     [SerializeField] private GameDatabase database;
     [SerializeField] private InteractionFeedbackUI feedbackUI;
 
     [Header("View Containers")]
-    [SerializeField] private GameObject hallView;
-    [SerializeField] private GameObject backstageView;
+    [SerializeField] private ViewContainerBinding[] viewContainers;
 
     public string CurrentViewId { get; private set; }
 
@@ -39,7 +46,9 @@ public class ViewManager : MonoBehaviour
 
     private void ShowView(string viewId)
     {
-        hallView.SetActive(viewId == "view_club_hall");
-        backstageView.SetActive(viewId == "view_club_backstage");
+        foreach (ViewContainerBinding binding in viewContainers)
+        {
+            binding.container.SetActive(binding.viewId == viewId);
+        }
     }
 }
