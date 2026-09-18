@@ -35,3 +35,9 @@ public class StoryStepDataFile
 {
     public StoryStepData[] story_steps;
 }
+
+[Serializable]
+public class StoryTriggerDataFile
+{
+    public StoryTriggerData[] story_triggers;
+}

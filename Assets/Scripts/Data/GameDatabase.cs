@@ -9,6 +9,7 @@ public class GameDatabase : MonoBehaviour
     private readonly Dictionary<string, ViewData> viewsById = new();
     private readonly Dictionary<string, HotspotData> hotspotsById = new();
     private readonly Dictionary<string, StoryStepData> storyStepsById = new();
+    private readonly Dictionary<string, StoryTriggerData> storyTriggersById = new();
 
     public void Initialize(
         NpcData[] npcs,
@@ -16,7 +17,8 @@ public class GameDatabase : MonoBehaviour
         MapData[] maps,
         ViewData[] views,
         HotspotData[] hotspots,
-        StoryStepData[] storySteps)
+        StoryStepData[] storySteps,
+        StoryTriggerData[] storyTriggers)
     {
         foreach (NpcData npc in npcs)
         {
@@ -46,6 +48,11 @@ public class GameDatabase : MonoBehaviour
         foreach (StoryStepData step in storySteps)
         {
             storyStepsById.Add(step.step_id, step);
+        }
+
+        foreach (StoryTriggerData trigger in storyTriggers)
+        {
+            storyTriggersById.Add(trigger.trigger_id, trigger);
         }
 
         Debug.Log("GameDatabase initialized.");
@@ -84,6 +91,12 @@ public class GameDatabase : MonoBehaviour
     public StoryStepData GetStoryStep(string id)
     {
         storyStepsById.TryGetValue(id, out StoryStepData data);
+        return data;
+    }
+
+    public StoryTriggerData GetStoryTrigger(string id)
+    {
+        storyTriggersById.TryGetValue(id, out StoryTriggerData data);
         return data;
     }
 }

@@ -10,6 +10,7 @@ public class GameDataLoader : MonoBehaviour
     [SerializeField] private TextAsset viewsJson;
     [SerializeField] private TextAsset hotspotsJson;
     [SerializeField] private TextAsset storyStepsJson;
+    [SerializeField] private TextAsset storyTriggersJson;
 
     private GameDatabase database;
 
@@ -43,13 +44,17 @@ public class GameDataLoader : MonoBehaviour
         StoryStepDataFile storyFile =
             JsonUtility.FromJson<StoryStepDataFile>(storyStepsJson.text);
 
+        StoryTriggerDataFile triggerFile =
+            JsonUtility.FromJson<StoryTriggerDataFile>(storyTriggersJson.text);
+
         database.Initialize(
             npcFile.npcs,
             itemFile.items,
             mapFile.maps,
             viewFile.views,
             hotspotFile.hotspots,
-            storyFile.story_steps
+            storyFile.story_steps,
+            triggerFile.story_triggers
         );
 
         Debug.Log($"Loaded NPCs: {npcFile.npcs.Length}");
@@ -58,5 +63,6 @@ public class GameDataLoader : MonoBehaviour
         Debug.Log($"Loaded Views: {viewFile.views.Length}");
         Debug.Log($"Loaded Hotspots: {hotspotFile.hotspots.Length}");
         Debug.Log($"Loaded StorySteps: {storyFile.story_steps.Length}");
+        Debug.Log($"Loaded StoryTriggers: {triggerFile.story_triggers.Length}");
     }
 }

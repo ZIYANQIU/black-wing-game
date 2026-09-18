@@ -2947,6 +2947,7 @@ MonoBehaviour:
   viewsJson: {fileID: 4900000, guid: a301141d312234148955f89da4ad516f, type: 3}
   hotspotsJson: {fileID: 4900000, guid: df22f5a9d4f6646ebbdbab3fec515ae5, type: 3}
   storyStepsJson: {fileID: 4900000, guid: 18576dc0a8eb94448bf543a0f53a0cfa, type: 3}
+  storyTriggersJson: {fileID: 4900000, guid: 99de14ad24c3548438d86850d1f67260, type: 3}
 --- !u!114 &1860409860
 MonoBehaviour:
   m_ObjectHideFlags: 0

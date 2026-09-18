@@ -1,0 +1,13 @@
+{
+  "story_triggers": [
+    {
+      "trigger_id": "trigger_doctor_intro",
+      "view_id": "view_club_hall",
+      "target_step_id": "step_doctor_intro_001",
+      "condition": {
+        "type": "has_item",
+        "id": "item_black_feather"
+      }
+    }
+  ]
+}
