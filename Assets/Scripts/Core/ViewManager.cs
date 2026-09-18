@@ -4,11 +4,17 @@ public class ViewManager : MonoBehaviour
 {
     [SerializeField] private GameDatabase database;
 
+    [Header("View Containers")]
+    [SerializeField] private GameObject hallView;
+    [SerializeField] private GameObject backstageView;
+
     public string CurrentViewId { get; private set; }
 
     public void SetInitialView(string viewId)
     {
         CurrentViewId = viewId;
+        ShowView(viewId);
+
         Debug.Log($"Initial view set to {viewId}");
     }
 
@@ -23,6 +29,14 @@ public class ViewManager : MonoBehaviour
         }
 
         CurrentViewId = viewId;
+        ShowView(viewId);
+
         Debug.Log($"Changed view to {viewId}, background={view.background}");
+    }
+
+    private void ShowView(string viewId)
+    {
+        hallView.SetActive(viewId == "view_club_hall");
+        backstageView.SetActive(viewId == "view_club_backstage");
     }
 }
