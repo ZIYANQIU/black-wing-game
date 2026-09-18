@@ -286,6 +286,7 @@ MonoBehaviour:
   feedbackUI: {fileID: 896588853}
   clueCollector: {fileID: 484500877}
   conditionEvaluator: {fileID: 1838948915}
+  viewManager: {fileID: 0}
 --- !u!1 &111724688
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +799,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 259359504}
-        m_TargetAssemblyTypeName: PrototypeHotspot, Assembly-CSharp
+        m_TargetAssemblyTypeName: HotspotController, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -856,12 +857,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 259359499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d80ae1b2f5a94eb084214dfe40376c2, type: 3}
+  m_Script: {fileID: 11500000, guid: ad0619be7711f4b57bb26b9822b00b09, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrototypeHotspot
-  feedbackUI: {fileID: 896588853}
-  message: The door is locked.
-  canCollect: 0
+  m_EditorClassIdentifier: Assembly-CSharp::HotspotController
+  hotspotId: hs_backstage_door
+  database: {fileID: 1860409860}
+  feedbackUI: {fileID: 0}
+  clueCollector: {fileID: 484500877}
+  conditionEvaluator: {fileID: 1838948915}
+  viewManager: {fileID: 1838948916}
 --- !u!1 &411605035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1724,7 @@ MonoBehaviour:
   feedbackUI: {fileID: 896588853}
   clueCollector: {fileID: 484500877}
   conditionEvaluator: {fileID: 1838948915}
+  viewManager: {fileID: 0}
 --- !u!114 &1223481547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,6 +2378,7 @@ MonoBehaviour:
   feedbackUI: {fileID: 896588853}
   clueCollector: {fileID: 484500877}
   conditionEvaluator: {fileID: 1838948915}
+  viewManager: {fileID: 0}
 --- !u!1 &1838948912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,6 +2390,7 @@ GameObject:
   - component: {fileID: 1838948914}
   - component: {fileID: 1838948913}
   - component: {fileID: 1838948915}
+  - component: {fileID: 1838948916}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2431,6 +2438,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConditionEvaluator
   gameState: {fileID: 1838948913}
+--- !u!114 &1838948916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838948912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b9dacb7265b4e25b9228f1b2e48260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ViewManager
+  database: {fileID: 1860409860}
 --- !u!1 &1860409857
 GameObject:
   m_ObjectHideFlags: 0
