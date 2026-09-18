@@ -3,6 +3,7 @@ using UnityEngine;
 public class ViewManager : MonoBehaviour
 {
     [SerializeField] private GameDatabase database;
+    [SerializeField] private InteractionFeedbackUI feedbackUI;
 
     [Header("View Containers")]
     [SerializeField] private GameObject hallView;
@@ -27,6 +28,8 @@ public class ViewManager : MonoBehaviour
             Debug.LogError($"View not found: {viewId}");
             return;
         }
+
+        feedbackUI.HideMessage();
 
         CurrentViewId = viewId;
         ShowView(viewId);

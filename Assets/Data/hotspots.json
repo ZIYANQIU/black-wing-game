@@ -36,6 +36,15 @@
       "condition": {
         "type": "always"
       }
+    },
+    {
+      "hotspot_id": "hs_backstage_exit",
+      "view_id": "view_club_backstage",
+      "type": "navigation",
+      "target_id": "view_club_hall",
+      "condition": {
+        "type": "always"
+      }
     }
   ]
 }
