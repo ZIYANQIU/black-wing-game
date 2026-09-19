@@ -6,6 +6,7 @@ public class GameState : MonoBehaviour
 {
     private readonly HashSet<string> collectedItemIds = new();
     private readonly HashSet<string> flags = new();
+    private readonly HashSet<string> firedTriggerIds = new();
 
     public event Action OnStateChanged;
 
@@ -40,5 +41,15 @@ public class GameState : MonoBehaviour
     public bool HasFlag(string flagId)
     {
         return flags.Contains(flagId);
+    }
+
+    public bool HasTriggerFired(string triggerId)
+    {
+        return firedTriggerIds.Contains(triggerId);
+    }
+
+    public bool MarkTriggerFired(string triggerId)
+    {
+        return firedTriggerIds.Add(triggerId);
     }
 }

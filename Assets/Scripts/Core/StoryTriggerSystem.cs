@@ -30,10 +30,17 @@ public class StoryTriggerSystem : MonoBehaviour
 
         foreach (StoryTriggerData trigger in triggers)
         {
+            if (gameState.HasTriggerFired(trigger.trigger_id))
+            {
+                Debug.Log($"StoryTrigger skipped (already fired): {trigger.trigger_id}");
+                continue;
+            }
+
             bool conditionResult = conditionEvaluator.Evaluate(trigger.condition);
 
             if (conditionResult)
             {
+                gameState.MarkTriggerFired(trigger.trigger_id);
                 Debug.Log($"StoryTrigger fired: {trigger.trigger_id} -> {trigger.target_step_id}");
             }
             else
