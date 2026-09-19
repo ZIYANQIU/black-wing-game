@@ -2898,6 +2898,7 @@ MonoBehaviour:
     container: {fileID: 9790908}
   - viewId: view_club_backstage
     container: {fileID: 848020692}
+  initialMapId: map_blackwing_club
 --- !u!114 &1838948917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2966,6 +2967,7 @@ MonoBehaviour:
   hotspotsJson: {fileID: 4900000, guid: df22f5a9d4f6646ebbdbab3fec515ae5, type: 3}
   storyStepsJson: {fileID: 4900000, guid: 18576dc0a8eb94448bf543a0f53a0cfa, type: 3}
   storyTriggersJson: {fileID: 4900000, guid: 99de14ad24c3548438d86850d1f67260, type: 3}
+  viewManager: {fileID: 1838948916}
 --- !u!114 &1860409860
 MonoBehaviour:
   m_ObjectHideFlags: 0

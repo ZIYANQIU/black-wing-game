@@ -17,7 +17,23 @@ public class ViewManager : MonoBehaviour
     [Header("View Containers")]
     [SerializeField] private ViewContainerBinding[] viewContainers;
 
+    [Header("Initial Map")]
+    [SerializeField] private string initialMapId;
+
     public string CurrentViewId { get; private set; }
+
+    public void InitializeStartingView()
+    {
+        MapData map = database.GetMap(initialMapId);
+
+        if (map == null)
+        {
+            Debug.LogError($"Map not found: {initialMapId}");
+            return;
+        }
+
+        SetInitialView(map.default_view);
+    }
 
     public void SetInitialView(string viewId)
     {

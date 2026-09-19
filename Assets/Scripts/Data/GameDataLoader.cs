@@ -12,6 +12,9 @@ public class GameDataLoader : MonoBehaviour
     [SerializeField] private TextAsset storyStepsJson;
     [SerializeField] private TextAsset storyTriggersJson;
 
+    [Header("Dependent Systems")]
+    [SerializeField] private ViewManager viewManager;
+
     private GameDatabase database;
 
     private void Awake()
@@ -64,5 +67,7 @@ public class GameDataLoader : MonoBehaviour
         Debug.Log($"Loaded Hotspots: {hotspotFile.hotspots.Length}");
         Debug.Log($"Loaded StorySteps: {storyFile.story_steps.Length}");
         Debug.Log($"Loaded StoryTriggers: {triggerFile.story_triggers.Length}");
+
+        viewManager.InitializeStartingView();
     }
 }
