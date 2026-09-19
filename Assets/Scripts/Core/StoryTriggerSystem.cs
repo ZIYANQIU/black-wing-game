@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class StoryTriggerSystem : MonoBehaviour
+{
+    [SerializeField] private GameDatabase database;
+    [SerializeField] private ConditionEvaluator conditionEvaluator;
+    [SerializeField] private ViewManager viewManager;
+
+    public void CheckTriggersForCurrentView()
+    {
+        string currentViewId = viewManager.CurrentViewId;
+        List<StoryTriggerData> triggers = database.GetStoryTriggersForView(currentViewId);
+
+        foreach (StoryTriggerData trigger in triggers)
+        {
+            bool conditionResult = conditionEvaluator.Evaluate(trigger.condition);
+
+            if (conditionResult)
+            {
+                Debug.Log($"StoryTrigger fired: {trigger.trigger_id} -> {trigger.target_step_id}");
+            }
+            else
+            {
+                Debug.Log($"StoryTrigger {trigger.trigger_id} condition not met.");
+            }
+        }
+    }
+}

@@ -12,6 +12,7 @@ public class ViewManager : MonoBehaviour
 
     [SerializeField] private GameDatabase database;
     [SerializeField] private InteractionFeedbackUI feedbackUI;
+    [SerializeField] private StoryTriggerSystem storyTriggerSystem;
 
     [Header("View Containers")]
     [SerializeField] private ViewContainerBinding[] viewContainers;
@@ -42,6 +43,8 @@ public class ViewManager : MonoBehaviour
         ShowView(viewId);
 
         Debug.Log($"Changed view to {viewId}, background={view.background}");
+
+        storyTriggerSystem.CheckTriggersForCurrentView();
     }
 
     private void ShowView(string viewId)

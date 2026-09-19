@@ -99,4 +99,19 @@ public class GameDatabase : MonoBehaviour
         storyTriggersById.TryGetValue(id, out StoryTriggerData data);
         return data;
     }
+
+    public List<StoryTriggerData> GetStoryTriggersForView(string viewId)
+    {
+        List<StoryTriggerData> results = new();
+
+        foreach (StoryTriggerData trigger in storyTriggersById.Values)
+        {
+            if (trigger.view_id == viewId)
+            {
+                results.Add(trigger);
+            }
+        }
+
+        return results;
+    }
 }

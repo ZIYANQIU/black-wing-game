@@ -2830,6 +2830,7 @@ GameObject:
   - component: {fileID: 1838948913}
   - component: {fileID: 1838948915}
   - component: {fileID: 1838948916}
+  - component: {fileID: 1838948917}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2891,11 +2892,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ViewManager
   database: {fileID: 1860409860}
   feedbackUI: {fileID: 896588853}
+  storyTriggerSystem: {fileID: 1838948917}
   viewContainers:
   - viewId: view_club_hall
     container: {fileID: 9790908}
   - viewId: view_club_backstage
     container: {fileID: 848020692}
+--- !u!114 &1838948917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838948912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8927916c12cd248f6a2154b84b135597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryTriggerSystem
+  database: {fileID: 1860409860}
+  conditionEvaluator: {fileID: 1838948915}
+  viewManager: {fileID: 1838948916}
 --- !u!1 &1860409857
 GameObject:
   m_ObjectHideFlags: 0
