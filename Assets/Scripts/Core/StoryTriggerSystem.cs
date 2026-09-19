@@ -7,6 +7,7 @@ public class StoryTriggerSystem : MonoBehaviour
     [SerializeField] private ConditionEvaluator conditionEvaluator;
     [SerializeField] private ViewManager viewManager;
     [SerializeField] private GameState gameState;
+    [SerializeField] private StoryRunner storyRunner;
 
     private void OnEnable()
     {
@@ -42,6 +43,7 @@ public class StoryTriggerSystem : MonoBehaviour
             {
                 gameState.MarkTriggerFired(trigger.trigger_id);
                 Debug.Log($"StoryTrigger fired: {trigger.trigger_id} -> {trigger.target_step_id}");
+                storyRunner.StartStory(trigger.target_step_id);
             }
             else
             {

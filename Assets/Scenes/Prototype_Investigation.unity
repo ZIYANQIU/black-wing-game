@@ -2831,6 +2831,7 @@ GameObject:
   - component: {fileID: 1838948915}
   - component: {fileID: 1838948916}
   - component: {fileID: 1838948917}
+  - component: {fileID: 1838948918}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2915,6 +2916,20 @@ MonoBehaviour:
   conditionEvaluator: {fileID: 1838948915}
   viewManager: {fileID: 1838948916}
   gameState: {fileID: 1838948913}
+  storyRunner: {fileID: 1838948918}
+--- !u!114 &1838948918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838948912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421bf62780c6e41f5b1a04244dfb2251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryRunner
+  database: {fileID: 1860409860}
 --- !u!1 &1860409857
 GameObject:
   m_ObjectHideFlags: 0
