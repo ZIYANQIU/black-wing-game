@@ -6,6 +6,22 @@ public class StoryTriggerSystem : MonoBehaviour
     [SerializeField] private GameDatabase database;
     [SerializeField] private ConditionEvaluator conditionEvaluator;
     [SerializeField] private ViewManager viewManager;
+    [SerializeField] private GameState gameState;
+
+    private void OnEnable()
+    {
+        gameState.OnStateChanged += HandleStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        gameState.OnStateChanged -= HandleStateChanged;
+    }
+
+    private void HandleStateChanged()
+    {
+        CheckTriggersForCurrentView();
+    }
 
     public void CheckTriggersForCurrentView()
     {

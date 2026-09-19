@@ -2913,6 +2913,7 @@ MonoBehaviour:
   database: {fileID: 1860409860}
   conditionEvaluator: {fileID: 1838948915}
   viewManager: {fileID: 1838948916}
+  gameState: {fileID: 1838948913}
 --- !u!1 &1860409857
 GameObject:
   m_ObjectHideFlags: 0

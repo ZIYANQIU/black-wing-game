@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class GameState : MonoBehaviour
     private readonly HashSet<string> collectedItemIds = new();
     private readonly HashSet<string> flags = new();
 
+    public event Action OnStateChanged;
+
     public bool CollectItem(string itemId)
     {
         bool added = collectedItemIds.Add(itemId);
@@ -13,6 +16,7 @@ public class GameState : MonoBehaviour
         if (added)
         {
             Debug.Log($"Collected item: {itemId}");
+            OnStateChanged?.Invoke();
         }
 
         return added;
@@ -25,7 +29,12 @@ public class GameState : MonoBehaviour
 
     public void SetFlag(string flagId)
     {
-        flags.Add(flagId);
+        bool added = flags.Add(flagId);
+
+        if (added)
+        {
+            OnStateChanged?.Invoke();
+        }
     }
 
     public bool HasFlag(string flagId)
