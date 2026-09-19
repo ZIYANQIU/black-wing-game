@@ -41,6 +41,8 @@ public class ViewManager : MonoBehaviour
         ShowView(viewId);
 
         Debug.Log($"Initial view set to {viewId}");
+
+        storyTriggerSystem.CheckTriggersForCurrentView();
     }
 
     public void ChangeView(string viewId)
