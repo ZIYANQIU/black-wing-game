@@ -49,12 +49,12 @@ public class StoryRunner : MonoBehaviour
             currentStep = step;
             NpcData speaker = database.GetNpc(step.speaker_id);
             string speakerName = speaker != null ? speaker.name : step.speaker_id;
-            dialogueUI.Show(speakerName, step.text);
+            dialogueUI.Show(speakerName, step.text, step.speaker_id);
         }
         else if (step.type == "narration")
         {
             currentStep = step;
-            dialogueUI.Show(null, step.text);
+            dialogueUI.Show(null, step.text, null);
         }
         else
         {

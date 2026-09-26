@@ -8,6 +8,15 @@
       "unlock_condition": {
         "type": "always"
       }
+    },
+    {
+      "map_id": "map_station",
+      "name": "Ribera Station",
+      "default_view": "view_station",
+      "desc": "An abandoned railway station.",
+      "unlock_condition": {
+        "type": "always"
+      }
     }
   ]
 }

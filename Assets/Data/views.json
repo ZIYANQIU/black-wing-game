@@ -9,6 +9,11 @@
       "view_id": "view_club_backstage",
       "map_id": "map_blackwing_club",
       "background": "bg_club_backstage"
+    },
+    {
+      "view_id": "view_station",
+      "map_id": "map_station",
+      "background": "bg_station"
     }
   ]
 }
