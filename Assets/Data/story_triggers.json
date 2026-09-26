@@ -8,6 +8,14 @@
         "type": "has_item",
         "id": "item_black_feather"
       }
+    },
+    {
+      "trigger_id": "trigger_station_intro",
+      "view_id": "view_station",
+      "target_step_id": "step_station_intro_001",
+      "condition": {
+        "type": "always"
+      }
     }
   ]
 }

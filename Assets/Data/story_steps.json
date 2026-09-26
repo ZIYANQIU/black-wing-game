@@ -35,6 +35,54 @@
       "params": {},
       "next_step": null,
       "is_save": false
+    },
+    {
+      "step_id": "step_station_intro_001",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "终于……快到了。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_intro_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_intro_002",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "这里应该就是地图上最后有官方标记的车站，后面的路恐怕只能步行了。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_intro_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_intro_003",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "就算是想拖欠薪水也没必要躲这么远吧？我这位老雇主还真是富有冒险精神。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_intro_004",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_intro_004",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "看样子太阳快落山了，事不宜迟，还是先抵达镇上安顿为好。再看看地图吧。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": null,
+      "is_save": false
     }
   ]
 }
