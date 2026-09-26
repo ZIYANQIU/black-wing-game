@@ -17,6 +17,15 @@
       "unlock_condition": {
         "type": "always"
       }
+    },
+    {
+      "map_id": "map_choice_test",
+      "name": "Choice Test Sandbox",
+      "default_view": "view_choice_test",
+      "desc": "Isolated sandbox map for CP5A-1 Choice System testing. Not part of the real game.",
+      "unlock_condition": {
+        "type": "always"
+      }
     }
   ]
 }

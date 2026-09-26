@@ -16,6 +16,14 @@
       "condition": {
         "type": "always"
       }
+    },
+    {
+      "trigger_id": "trigger_choice_test",
+      "view_id": "view_choice_test",
+      "target_step_id": "step_test_choice_001",
+      "condition": {
+        "type": "always"
+      }
     }
   ]
 }

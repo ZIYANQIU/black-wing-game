@@ -14,6 +14,11 @@
       "view_id": "view_station",
       "map_id": "map_station",
       "background": "bg_station"
+    },
+    {
+      "view_id": "view_choice_test",
+      "map_id": "map_choice_test",
+      "background": "bg_placeholder"
     }
   ]
 }

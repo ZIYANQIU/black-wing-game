@@ -5,9 +5,7 @@
       "type": "dialogue",
       "speaker_id": "npc_doctor_brook",
       "text": "You shouldn't be here.",
-      "condition": {
-        "type": "always"
-      },
+      "condition": { "type": "always" },
       "params": {},
       "next_step": "step_doctor_intro_002",
       "is_save": false
@@ -17,9 +15,7 @@
       "type": "narration",
       "speaker_id": null,
       "text": "The doctor glances toward the window.",
-      "condition": {
-        "type": "always"
-      },
+      "condition": { "type": "always" },
       "params": {},
       "next_step": "step_doctor_intro_003",
       "is_save": false
@@ -29,9 +25,7 @@
       "type": "dialogue",
       "speaker_id": "npc_doctor_brook",
       "text": "Leave before someone sees you.",
-      "condition": {
-        "type": "always"
-      },
+      "condition": { "type": "always" },
       "params": {},
       "next_step": null,
       "is_save": false
@@ -41,9 +35,7 @@
       "type": "dialogue",
       "speaker_id": "npc_bh",
       "text": "终于……快到了。",
-      "condition": {
-        "type": "always"
-      },
+      "condition": { "type": "always" },
       "params": {},
       "next_step": "step_station_intro_002",
       "is_save": false
@@ -53,9 +45,7 @@
       "type": "dialogue",
       "speaker_id": "npc_bh",
       "text": "这里应该就是地图上最后有官方标记的车站，后面的路恐怕只能步行了。",
-      "condition": {
-        "type": "always"
-      },
+      "condition": { "type": "always" },
       "params": {},
       "next_step": "step_station_intro_003",
       "is_save": false
@@ -65,9 +55,7 @@
       "type": "dialogue",
       "speaker_id": "npc_bh",
       "text": "就算是想拖欠薪水也没必要躲这么远吧？我这位老雇主还真是富有冒险精神。",
-      "condition": {
-        "type": "always"
-      },
+      "condition": { "type": "always" },
       "params": {},
       "next_step": "step_station_intro_004",
       "is_save": false
@@ -77,9 +65,95 @@
       "type": "dialogue",
       "speaker_id": "npc_bh",
       "text": "看样子太阳快落山了，事不宜迟，还是先抵达镇上安顿为好。再看看地图吧。",
-      "condition": {
-        "type": "always"
+      "condition": { "type": "always" },
+      "params": {},
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_test_choice_001",
+      "type": "choice",
+      "speaker_id": null,
+      "text": "[Choice Test] 你准备走哪一条路？(3 options)",
+      "condition": { "type": "always" },
+      "params": {
+        "choices": [
+          { "choice_id": "test_left", "text": "向左走（死路，测试返回重选）", "condition": { "type": "always" }, "next_step": "step_test_wrong_001" },
+          { "choice_id": "test_middle", "text": "向中间走（进入条件隐藏测试）", "condition": { "type": "always" }, "next_step": "step_test_choice_002" },
+          { "choice_id": "test_right", "text": "向右走（进入 4 选项测试）", "condition": { "type": "always" }, "next_step": "step_test_right_001" }
+        ]
       },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_test_wrong_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "[Choice Test] 这是一条死路，你退了回来，重新看看该走哪条路。",
+      "condition": { "type": "always" },
+      "params": {},
+      "next_step": "step_test_choice_001",
+      "is_save": false
+    },
+    {
+      "step_id": "step_test_choice_002",
+      "type": "choice",
+      "speaker_id": null,
+      "text": "[Choice Test] 前面似乎有一扇锁住的门。(2 options, one condition-hidden)",
+      "condition": { "type": "always" },
+      "params": {
+        "choices": [
+          { "choice_id": "test_hidden_a", "text": "用测试钥匙开门（应被隐藏，未拥有 item_test_key）", "condition": { "type": "has_item", "id": "item_test_key" }, "next_step": "step_test_hidden_a_001" },
+          { "choice_id": "test_visible_b", "text": "绕过去继续走", "condition": { "type": "always" }, "next_step": "step_test_end_001" }
+        ]
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_test_hidden_a_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "[Choice Test] 你用钥匙打开了门。",
+      "condition": { "type": "always" },
+      "params": {},
+      "next_step": "step_test_end_001",
+      "is_save": false
+    },
+    {
+      "step_id": "step_test_right_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "[Choice Test] 你走向右边的小路。",
+      "condition": { "type": "always" },
+      "params": {},
+      "next_step": "step_test_choice_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_test_choice_003",
+      "type": "choice",
+      "speaker_id": null,
+      "text": "[Choice Test] 岔路口有四个方向。(4 options)",
+      "condition": { "type": "always" },
+      "params": {
+        "choices": [
+          { "choice_id": "test_opt_a", "text": "方向 A", "condition": { "type": "always" }, "next_step": "step_test_end_001" },
+          { "choice_id": "test_opt_b", "text": "方向 B", "condition": { "type": "always" }, "next_step": "step_test_end_001" },
+          { "choice_id": "test_opt_c", "text": "方向 C", "condition": { "type": "always" }, "next_step": "step_test_end_001" },
+          { "choice_id": "test_opt_d", "text": "方向 D", "condition": { "type": "always" }, "next_step": "step_test_end_001" }
+        ]
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_test_end_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "[Choice Test] 测试链结束。",
+      "condition": { "type": "always" },
       "params": {},
       "next_step": null,
       "is_save": false
