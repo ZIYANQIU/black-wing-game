@@ -8,6 +8,7 @@ public class HotspotController : MonoBehaviour
     [SerializeField] private ClueCollector clueCollector;
     [SerializeField] private ConditionEvaluator conditionEvaluator;
     [SerializeField] private ViewManager viewManager;
+    [SerializeField] private StoryRunner storyRunner;
 
     public void Interact()
     {
@@ -58,6 +59,7 @@ public class HotspotController : MonoBehaviour
             }
 
             Debug.Log($"Story triggered: {step.step_id}, text={step.text}");
+            storyRunner.StartStory(hotspot.target_id);
         }
         else if (hotspot.type == "navigation")
         {

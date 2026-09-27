@@ -177,6 +177,7 @@ MonoBehaviour:
   clueCollector: {fileID: 484500877}
   conditionEvaluator: {fileID: 1838948915}
   viewManager: {fileID: 1838948916}
+  storyRunner: {fileID: 0}
 --- !u!114 &139203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +480,7 @@ MonoBehaviour:
   clueCollector: {fileID: 484500877}
   conditionEvaluator: {fileID: 1838948915}
   viewManager: {fileID: 0}
+  storyRunner: {fileID: 1838948918}
 --- !u!1 &111724688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,6 +1135,7 @@ MonoBehaviour:
   clueCollector: {fileID: 484500877}
   conditionEvaluator: {fileID: 1838948915}
   viewManager: {fileID: 1838948916}
+  storyRunner: {fileID: 0}
 --- !u!1 &411605035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,6 +2324,7 @@ MonoBehaviour:
   clueCollector: {fileID: 484500877}
   conditionEvaluator: {fileID: 1838948915}
   viewManager: {fileID: 0}
+  storyRunner: {fileID: 0}
 --- !u!114 &1223481547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3247,6 +3251,7 @@ MonoBehaviour:
   clueCollector: {fileID: 484500877}
   conditionEvaluator: {fileID: 1838948915}
   viewManager: {fileID: 0}
+  storyRunner: {fileID: 0}
 --- !u!1 &1838948912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StoryRunner
   database: {fileID: 1860409860}
   dialogueUI: {fileID: 896588855}
+  choiceUI: {fileID: 0}
+  conditionEvaluator: {fileID: 0}
 --- !u!1 &1860409857
 GameObject:
   m_ObjectHideFlags: 0
