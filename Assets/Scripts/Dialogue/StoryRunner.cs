@@ -8,15 +8,37 @@ public class StoryRunner : MonoBehaviour
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private ChoiceUI choiceUI;
     [SerializeField] private ConditionEvaluator conditionEvaluator;
+    [SerializeField] private GameState gameState;
+    [SerializeField] private ViewManager viewManager;
+
+    private void Awake()
+    {
+        if (gameState == null)
+        {
+            gameState = GetComponent<GameState>();
+        }
+
+        if (viewManager == null)
+        {
+            viewManager = GetComponent<ViewManager>();
+        }
+    }
 
     private StoryStepData currentStep;
     private StoryStepData currentChoiceStep;
     private bool isChoiceLocked;
     private bool isStartingStory;
+    private bool isExecutingAction;
+    private bool didCurrentStartFail;
+    private bool didStoryEndDuringStart;
+    private bool hasPendingStoryEndedNotification;
 
     public event Action OnStoryEnded;
 
-    public bool IsPlaying => currentStep != null || currentChoiceStep != null;
+    public bool IsPlaying =>
+        currentStep != null ||
+        currentChoiceStep != null ||
+        isExecutingAction;
 
     public bool StartStory(string stepId)
     {
@@ -38,6 +60,8 @@ public class StoryRunner : MonoBehaviour
             return false;
         }
 
+        didCurrentStartFail = false;
+        didStoryEndDuringStart = false;
         isStartingStory = true;
 
         try
@@ -49,7 +73,24 @@ public class StoryRunner : MonoBehaviour
             isStartingStory = false;
         }
 
-        return IsPlaying;
+        if (didStoryEndDuringStart && !didCurrentStartFail)
+        {
+            didStoryEndDuringStart = false;
+            hasPendingStoryEndedNotification = true;
+        }
+
+        return !didCurrentStartFail;
+    }
+
+    private void LateUpdate()
+    {
+        if (!hasPendingStoryEndedNotification)
+        {
+            return;
+        }
+
+        hasPendingStoryEndedNotification = false;
+        OnStoryEnded?.Invoke();
     }
 
     public void OnContinueClicked()
@@ -140,6 +181,7 @@ public class StoryRunner : MonoBehaviour
         if (step == null)
         {
             Debug.LogError($"StoryStep not found: {stepId}");
+            didCurrentStartFail = true;
             FinishStory();
             return;
         }
@@ -169,6 +211,14 @@ public class StoryRunner : MonoBehaviour
         {
             PlayChoiceStep(step);
         }
+        else if (
+            step.type == "give_item" ||
+            step.type == "set_flag" ||
+            step.type == "change_view"
+        )
+        {
+            PlayActionStep(step);
+        }
         else
         {
             Debug.LogWarning(
@@ -177,12 +227,116 @@ public class StoryRunner : MonoBehaviour
 
             if (string.IsNullOrEmpty(step.next_step))
             {
+                didCurrentStartFail = true;
                 FinishStory();
                 return;
             }
 
             PlayStep(step.next_step);
         }
+    }
+
+    private void PlayActionStep(StoryStepData step)
+    {
+        StoryParamsData parameters = step.@params;
+
+        if (parameters == null)
+        {
+            Debug.LogError(
+                $"Action step '{step.step_id}' has no params. Stopping safely."
+            );
+            didCurrentStartFail = true;
+            FinishStory();
+            return;
+        }
+
+        bool succeeded = true;
+        isExecutingAction = true;
+
+        try
+        {
+            if (step.type == "give_item")
+            {
+                if (
+                    gameState == null ||
+                    string.IsNullOrEmpty(parameters.item_id) ||
+                    database.GetItem(parameters.item_id) == null
+                )
+                {
+                    Debug.LogError(
+                        $"Invalid give_item action in step '{step.step_id}': item_id='{parameters.item_id}'."
+                    );
+                    succeeded = false;
+                }
+                else
+                {
+                    gameState.CollectItem(parameters.item_id);
+                    Debug.Log(
+                        $"Story action give_item: {parameters.item_id}"
+                    );
+                }
+            }
+            else if (step.type == "set_flag")
+            {
+                if (
+                    gameState == null ||
+                    string.IsNullOrEmpty(parameters.flag_id)
+                )
+                {
+                    Debug.LogError(
+                        $"Invalid set_flag action in step '{step.step_id}': flag_id='{parameters.flag_id}'."
+                    );
+                    succeeded = false;
+                }
+                else
+                {
+                    gameState.SetFlag(parameters.flag_id);
+                    Debug.Log(
+                        $"Story action set_flag: {parameters.flag_id}"
+                    );
+                }
+            }
+            else if (step.type == "change_view")
+            {
+                if (
+                    viewManager == null ||
+                    string.IsNullOrEmpty(parameters.view_id) ||
+                    database.GetView(parameters.view_id) == null
+                )
+                {
+                    Debug.LogError(
+                        $"Invalid change_view action in step '{step.step_id}': view_id='{parameters.view_id}'."
+                    );
+                    succeeded = false;
+                }
+                else
+                {
+                    viewManager.ChangeView(parameters.view_id);
+                    Debug.Log(
+                        $"Story action change_view: {parameters.view_id}"
+                    );
+                }
+            }
+        }
+        finally
+        {
+            isExecutingAction = false;
+        }
+
+        if (!succeeded)
+        {
+            didCurrentStartFail = true;
+            FinishStory();
+            return;
+        }
+
+        if (string.IsNullOrEmpty(step.next_step))
+        {
+            FinishStory();
+            return;
+        }
+
+        PlayStep(step.next_step);
     }
 
     private void PlayChoiceStep(StoryStepData step)
@@ -198,6 +352,7 @@ public class StoryRunner : MonoBehaviour
                 $"Choice step '{step.step_id}' has no choices defined. Stopping safely."
             );
 
+            didCurrentStartFail = true;
             FinishStory();
             return;
         }
@@ -213,6 +368,7 @@ public class StoryRunner : MonoBehaviour
                     $"Choice step '{step.step_id}' has a choice with empty choice_id. Stopping safely."
                 );
 
+                didCurrentStartFail = true;
                 FinishStory();
                 return;
             }
@@ -223,6 +379,7 @@ public class StoryRunner : MonoBehaviour
                     $"Choice step '{step.step_id}' has a duplicate choice_id '{choice.choice_id}'. Stopping safely."
                 );
 
+                didCurrentStartFail = true;
                 FinishStory();
                 return;
             }
@@ -233,6 +390,7 @@ public class StoryRunner : MonoBehaviour
                     $"Choice '{choice.choice_id}' in step '{step.step_id}' has empty text. Stopping safely."
                 );
 
+                didCurrentStartFail = true;
                 FinishStory();
                 return;
             }
@@ -243,6 +401,7 @@ public class StoryRunner : MonoBehaviour
                     $"Choice '{choice.choice_id}' in step '{step.step_id}' has empty next_step. Stopping safely."
                 );
 
+                didCurrentStartFail = true;
                 FinishStory();
                 return;
             }
@@ -259,6 +418,7 @@ public class StoryRunner : MonoBehaviour
                 $"Choice step '{step.step_id}' has no visible choices after evaluating conditions. Stopping safely."
             );
 
+            didCurrentStartFail = true;
             FinishStory();
             return;
         }
@@ -282,7 +442,11 @@ public class StoryRunner : MonoBehaviour
 
         Debug.Log("Story ended.");
 
-        if (!isStartingStory)
+        if (isStartingStory)
+        {
+            didStoryEndDuringStart = true;
+        }
+        else
         {
             OnStoryEnded?.Invoke();
         }
