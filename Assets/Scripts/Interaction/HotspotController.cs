@@ -10,8 +10,22 @@ public class HotspotController : MonoBehaviour
     [SerializeField] private ViewManager viewManager;
     [SerializeField] private StoryRunner storyRunner;
 
+    private void Awake()
+    {
+        if (storyRunner == null)
+        {
+            storyRunner = FindFirstObjectByType<StoryRunner>();
+        }
+    }
+
     public void Interact()
     {
+        if (storyRunner != null && storyRunner.IsPlaying)
+        {
+            Debug.Log($"Hotspot ignored while story is playing: {hotspotId}");
+            return;
+        }
+
         HotspotData hotspot = database.GetHotspot(hotspotId);
 
         if (hotspot == null)
