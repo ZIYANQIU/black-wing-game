@@ -17,6 +17,15 @@
       "icon": "icon_torn_letter",
       "collectible": true,
       "hide_after_collect": true
+    },
+    {
+      "item_id": "item_letter",
+      "name": "信件",
+      "desc": "一封需要仔细查看的信件。",
+      "type": "key_item",
+      "icon": "",
+      "collectible": true,
+      "hide_after_collect": false
     }
   ]
 }
