@@ -26,6 +26,15 @@
       "icon": "",
       "collectible": true,
       "hide_after_collect": false
+    },
+    {
+      "item_id": "item_map",
+      "name": "地图",
+      "desc": "一张需要仔细研究的地图。",
+      "type": "key_item",
+      "icon": "",
+      "collectible": true,
+      "hide_after_collect": false
     }
   ]
 }

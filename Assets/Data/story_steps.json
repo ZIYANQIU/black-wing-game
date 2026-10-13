@@ -81,7 +81,7 @@
         "type": "always"
       },
       "params": {},
-      "next_step": "step_station_give_letter_001",
+      "next_step": "step_station_give_map_001",
       "is_save": false
     },
     {
@@ -260,6 +260,20 @@
       },
       "params": {
         "item_id": "item_letter"
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_give_map_001",
+      "type": "give_item",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "item_id": "item_map"
       },
       "next_step": null,
       "is_save": false
