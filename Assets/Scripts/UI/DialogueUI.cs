@@ -28,6 +28,20 @@ public class DialogueUI : MonoBehaviour
 
         speakerNameObject.SetActive(hasSpeaker);
 
+        // Narration shows text only; dialogue shows the character UI.
+        Transform headIcon = dialoguePanel.transform.Find("HeadIconFrame");
+        Transform nameBox = dialoguePanel.transform.Find("NameBoxBG");
+
+        if (headIcon != null)
+        {
+            headIcon.gameObject.SetActive(hasSpeaker);
+        }
+
+        if (nameBox != null)
+        {
+            nameBox.gameObject.SetActive(hasSpeaker);
+        }
+
         if (hasSpeaker)
         {
             speakerNameText.text = speakerName;

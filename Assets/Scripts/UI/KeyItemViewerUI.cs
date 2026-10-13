@@ -9,6 +9,7 @@ public class KeyItemViewerUI : MonoBehaviour
 
     [Header("Key Item")]
     [SerializeField] private string itemId;
+    [SerializeField] private string firstViewFlagId;
 
     [Header("UI")]
     [SerializeField] private GameObject itemButtonObject;
@@ -143,9 +144,18 @@ public class KeyItemViewerUI : MonoBehaviour
 
     private void CloseViewer()
     {
-        if (viewerPanel != null)
+        if (viewerPanel == null || !viewerPanel.activeSelf)
         {
-            viewerPanel.SetActive(false);
+            return;
+        }
+
+        viewerPanel.SetActive(false);
+
+        if (gameState != null &&
+            !string.IsNullOrEmpty(firstViewFlagId) &&
+            !gameState.HasFlag(firstViewFlagId))
+        {
+            gameState.SetFlag(firstViewFlagId);
         }
     }
 }

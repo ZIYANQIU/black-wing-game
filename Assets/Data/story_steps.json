@@ -277,6 +277,42 @@
       },
       "next_step": null,
       "is_save": false
+    },
+    {
+      "step_id": "step_station_map_review_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你开始翻来覆去地研究这张纸，约两分钟后，你终于不得不接受它已经在充分发挥过其作用后行至功成身退的时刻——",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_map_review_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_map_review_002",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "尼舍镇所在的位置只有一片密林，或许它的规模还不足以登上一张北郡地图。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_map_review_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_map_review_003",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "那么就只能想想别的法子找路了……对了，我记得信里似乎提到过。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_give_letter_001",
+      "is_save": false
     }
   ]
 }
