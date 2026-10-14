@@ -313,6 +313,42 @@
       "params": {},
       "next_step": "step_station_give_letter_001",
       "is_save": false
+    },
+    {
+      "step_id": "step_station_letter_review_001",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "（耸肩）……“语焉不详的目的地线索”，是指这些意味不明的涂鸦吗？",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_letter_review_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_letter_review_002",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "这算是考核？好吧，真是位拧巴的委托人。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_letter_review_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_letter_review_003",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "前面似乎有条小路，先过去看看吧。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": null,
+      "is_save": false
     }
   ]
 }

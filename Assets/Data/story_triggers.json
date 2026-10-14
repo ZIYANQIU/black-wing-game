@@ -33,6 +33,15 @@
         "type": "has_flag",
         "id": "flag_map_viewed"
       }
+    },
+    {
+      "trigger_id": "trigger_station_letter_review",
+      "view_id": "view_station",
+      "target_step_id": "step_station_letter_review_001",
+      "condition": {
+        "type": "has_flag",
+        "id": "flag_letter_viewed"
+      }
     }
   ]
 }
