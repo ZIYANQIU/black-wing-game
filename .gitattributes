@@ -1,0 +1,4 @@
+# Unity-generated serialized files
+*.unity -whitespace
+*.meta -whitespace
+*.asset -whitespace
