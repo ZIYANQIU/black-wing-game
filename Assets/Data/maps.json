@@ -26,6 +26,15 @@
       "unlock_condition": {
         "type": "always"
       }
+    },
+    {
+      "map_id": "map_forest",
+      "name": "Forest",
+      "default_view": "view_forest_fork",
+      "desc": "The forest and its three-way fork.",
+      "unlock_condition": {
+        "type": "always"
+      }
     }
   ]
 }

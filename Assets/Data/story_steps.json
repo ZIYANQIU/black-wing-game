@@ -347,7 +347,69 @@
         "type": "always"
       },
       "params": {},
+      "next_step": "step_station_depart_change_view_001",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_depart_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你走出车站，沿着杂草丛生的小径一路向前，不多时，便抵达了一处三岔路口。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_depart_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_depart_002",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "漆黑的林木立在两旁，仿佛某些上古神话里拱卫地狱之门的狠角色，过高的尺寸带来无言的压迫感。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_depart_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_depart_003",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "这里的树木似乎高耸异常。除此之外，你左右环顾，三条岔路看上去没什么不同。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_station_depart_004",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_depart_004",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "一根破旧的牌柱。不知已在此伫立多久，三个路牌歪歪扭扭地挂在上面，漆皮脱落后裸露出某种灰白底色，喑哑且斑驳地盘踞。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
       "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_depart_change_view_001",
+      "type": "change_view",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "view_id": "view_forest_fork"
+      },
+      "next_step": "step_station_depart_001",
       "is_save": false
     }
   ]

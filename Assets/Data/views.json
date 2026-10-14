@@ -19,6 +19,11 @@
       "view_id": "view_choice_test",
       "map_id": "map_choice_test",
       "background": "bg_placeholder"
+    },
+    {
+      "view_id": "view_forest_fork",
+      "map_id": "map_forest",
+      "background": "bg_forest_fork"
     }
   ]
 }
