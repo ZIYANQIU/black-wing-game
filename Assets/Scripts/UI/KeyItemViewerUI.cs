@@ -103,7 +103,13 @@ public class KeyItemViewerUI : MonoBehaviour
 
         if (item != null && itemButtonText != null)
         {
-            itemButtonText.text = item.name;
+            bool needsFirstView =
+                !string.IsNullOrEmpty(firstViewFlagId) &&
+                !gameState.HasFlag(firstViewFlagId);
+
+            itemButtonText.text = needsFirstView
+                ? $"点击{item.name}"
+                : item.name;
         }
     }
 
