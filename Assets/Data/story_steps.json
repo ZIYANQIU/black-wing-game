@@ -411,6 +411,84 @@
       },
       "next_step": "step_station_depart_001",
       "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_top_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "一块看上去有些年头的木板，上面歪歪扭扭地刻着1.5km。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_inspect_top_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_top_002",
+      "type": "set_flag",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "flag_id": "flag_fork_top_inspected"
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_middle_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "一块看上去有些年头的木板，上面歪歪扭扭地刻着3km。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_inspect_middle_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_middle_002",
+      "type": "set_flag",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "flag_id": "flag_fork_middle_inspected"
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_bottom_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "一块看上去还算光洁的木板，上面的字迹似乎是漆写的，尚未剥落。3km。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_inspect_bottom_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_bottom_002",
+      "type": "set_flag",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "flag_id": "flag_fork_bottom_inspected"
+      },
+      "next_step": null,
+      "is_save": false
     }
   ]
 }

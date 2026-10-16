@@ -45,6 +45,33 @@
       "condition": {
         "type": "always"
       }
+    },
+    {
+      "hotspot_id": "hs_fork_inspect_top",
+      "view_id": "view_forest_fork",
+      "type": "story",
+      "target_id": "step_fork_inspect_top_001",
+      "condition": {
+        "type": "always"
+      }
+    },
+    {
+      "hotspot_id": "hs_fork_inspect_middle",
+      "view_id": "view_forest_fork",
+      "type": "story",
+      "target_id": "step_fork_inspect_middle_001",
+      "condition": {
+        "type": "always"
+      }
+    },
+    {
+      "hotspot_id": "hs_fork_inspect_bottom",
+      "view_id": "view_forest_fork",
+      "type": "story",
+      "target_id": "step_fork_inspect_bottom_001",
+      "condition": {
+        "type": "always"
+      }
     }
   ]
 }
