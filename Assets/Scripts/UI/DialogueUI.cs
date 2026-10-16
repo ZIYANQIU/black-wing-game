@@ -22,6 +22,9 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private Image portraitImage;
     [SerializeField] private NpcPortraitBinding[] npcPortraits;
 
+    [Header("View-specific Portrait Visibility")]
+    [SerializeField] private ViewManager viewManager;
+
     public void Show(string speakerName, string text, string npcId)
     {
         bool hasSpeaker = !string.IsNullOrEmpty(speakerName);
@@ -54,7 +57,10 @@ public class DialogueUI : MonoBehaviour
 
         if (portraitObject != null)
         {
-            portraitObject.SetActive(hasPortrait);
+            bool hideLargePortrait = viewManager != null
+                && viewManager.CurrentViewId == "view_forest_fork";
+
+            portraitObject.SetActive(hasPortrait && !hideLargePortrait);
         }
 
         if (hasPortrait)
