@@ -636,7 +636,7 @@
         "type": "always"
       },
       "params": {},
-      "next_step": null,
+      "next_step": "step_fork_route_middle_003",
       "is_save": false
     },
     {
@@ -860,6 +860,42 @@
       "type": "narration",
       "speaker_id": null,
       "text": "【End2：逃出生天？】",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_middle_003",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "放眼望去，树影模糊的轮廓轻轻曳动，像万圣节幽灵那样欢快地颤抖。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_middle_004",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_middle_004",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "单看眼前的画面，如果没有地图，在这样昏暗的密林里恐怕寸步难行。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_middle_005",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_middle_005",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你必须仔细辨别，才能确保自己不走错路。",
       "condition": {
         "type": "always"
       },
