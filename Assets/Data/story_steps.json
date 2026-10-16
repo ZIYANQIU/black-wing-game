@@ -515,6 +515,18 @@
       },
       "next_step": null,
       "is_save": false
+    },
+    {
+      "step_id": "step_fork_all_inspected_001",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "找到你了。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": null,
+      "is_save": false
     }
   ]
 }

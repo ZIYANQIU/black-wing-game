@@ -42,6 +42,20 @@
         "type": "has_flag",
         "id": "flag_letter_viewed"
       }
+    },
+    {
+      "trigger_id": "trigger_fork_all_inspected",
+      "view_id": "view_forest_fork",
+      "target_step_id": "step_fork_all_inspected_001",
+      "condition": {
+        "type": "has_all_flags",
+        "ids": [
+          "flag_fork_top_inspected",
+          "flag_fork_middle_inspected",
+          "flag_fork_bottom_inspected",
+          "flag_fork_back_inspected"
+        ]
+      }
     }
   ]
 }
