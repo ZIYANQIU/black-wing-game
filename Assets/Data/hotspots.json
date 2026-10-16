@@ -72,6 +72,15 @@
       "condition": {
         "type": "always"
       }
+    },
+    {
+      "hotspot_id": "hs_fork_inspect_back",
+      "view_id": "view_forest_fork",
+      "type": "story",
+      "target_id": "step_fork_inspect_back_001",
+      "condition": {
+        "type": "always"
+      }
     }
   ]
 }

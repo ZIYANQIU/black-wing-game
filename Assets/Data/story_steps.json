@@ -489,6 +489,32 @@
       },
       "next_step": null,
       "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_back_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "【临时占位：路牌背面调查旁白待补充】",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_inspect_back_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_back_002",
+      "type": "set_flag",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "flag_id": "flag_fork_back_inspected"
+      },
+      "next_step": null,
+      "is_save": false
     }
   ]
 }
