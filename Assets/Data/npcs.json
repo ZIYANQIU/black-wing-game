@@ -13,6 +13,13 @@
       "bust": "bust_bh",
       "icon": "icon_bh",
       "desc": "The player character, a dog detective."
+    },
+    {
+      "npc_id": "npc_old_woman",
+      "name": "老妇",
+      "bust": "",
+      "icon": "",
+      "desc": "End2 剧情中救助 BH 的老妇。"
     }
   ]
 }

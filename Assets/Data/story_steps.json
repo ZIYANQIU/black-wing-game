@@ -525,6 +525,345 @@
         "type": "always"
       },
       "params": {},
+      "next_step": "step_fork_choose_path_001",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_choose_path_001",
+      "type": "choice",
+      "speaker_id": null,
+      "text": "【开发占位：请选择要走的小径】",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "choices": [
+          {
+            "choice_id": "fork_up",
+            "text": "上面的路牌所指向的小径",
+            "condition": {
+              "type": "always"
+            },
+            "next_step": "step_fork_route_up_001"
+          },
+          {
+            "choice_id": "fork_middle",
+            "text": "中间的路牌所指向的小径",
+            "condition": {
+              "type": "always"
+            },
+            "next_step": "step_fork_route_middle_001"
+          },
+          {
+            "choice_id": "fork_down",
+            "text": "下面的路牌所指向的小径",
+            "condition": {
+              "type": "always"
+            },
+            "next_step": "step_fork_route_down_001"
+          }
+        ]
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_up_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你走进森林。庞然的、吞吃光线的可怖巨口，于你而言古怪又理所当然的某种未知正横陈前方。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_up_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_up_002",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你越是前行越是泥泞，显而易见的是，你走向了一条离谱至极的错路——整片森林仿佛开始苏醒、蠕动，林木交错如相撞的牙齿。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_up_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你走进森林。庞然的、吞吃光线的可怖巨口，于你而言古怪又理所当然的某种未知正横陈前方。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_002",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你沿着歪歪扭扭的小径前行，这里的路旁还有未被踏秃的野草，看上去没什么人经过这里。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_middle_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你走进森林。庞然的、吞吃光线的可怖巨口，于你而言古怪又理所当然的某种未知正横陈前方。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_middle_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_middle_002",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你抬起头，傍晚时分的太阳暂且退场后，高悬在头顶的便仅剩密不透光的漆黑枝叶，层层叠叠，遮天蔽日。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_up_003",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "森林在咀嚼你。缓慢地、优雅地，从你发酸的腿骨与柔软的腹部开始，枝叶繁茂地躬身，如母亲的瀑发般将你淹没。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_up_004",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_up_004",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你恍惚地、痛苦又幸福地陷入沉睡。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_up_005",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_up_005",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "【End1：失途之人】",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_003",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "漫长的行走让你逐渐有些精神上的负担，或许你应该停下来歇歇脚，但不知为何，某种潜藏的恐惧仿佛正紧紧偎在你的后背。一旦你松懈停步，就会被它吞吃殆尽。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_004",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_004",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你在无休止的徒奔中精疲力尽，终于——",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_005",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_005",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "陷入了一场混乱的迷梦。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_006",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_006",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你在昏睡中隐约见到了许多怪诞又诡谲的画面，但在苏醒的刹那，它们又全部烟消云散，仿佛有谁从你的脑子里抹去了一段记忆。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_007",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_007",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你愣愣地坐起身，屁股底下是柔软的床铺。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_008",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_008",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "这是……哪里？",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_009",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_009",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "一名老妇恰巧端着汤药走进来，对你笑笑。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_010",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_010",
+      "type": "dialogue",
+      "speaker_id": "npc_old_woman",
+      "text": "你醒啦？你晕倒在那片林子里了，我丈夫出门的时候把你捡回来的。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_011",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_011",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "啊，谢谢。不过，这是哪里？我似乎有些想不起来了……我为什么会……",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_012",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_012",
+      "type": "dialogue",
+      "speaker_id": "npc_old_woman",
+      "text": "这里是康郡，小伙子，醒了就快回去吧，那片林子邪得很，不是每个人进去都能有你这样的好运气的。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_013",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_013",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "可是，我……",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_014",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_014",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "老妇摇头叹息，留下那碗热腾腾的汤药，转身出去了。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_015",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_015",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你试图回想先前发生了什么，你又为什么会出现在这里，然而绞尽脑汁也无济于事。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_016",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_016",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "最终，你只能沮丧地返回伦敦，劝慰自己接受这段谜团般的经历。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_017",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_017",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你在伦敦的事务所照常营业，雇主来来往往，案子五花八门。很快，你再也没有想起那片漆黑的、沉默的森林。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_route_down_018",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_route_down_018",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "【End2：逃出生天？】",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
       "next_step": null,
       "is_save": false
     }

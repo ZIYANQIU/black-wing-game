@@ -12,6 +12,13 @@ public class DialogueUI : MonoBehaviour
         public Sprite portrait;
     }
 
+    [Serializable]
+    public class NpcHeadIconBinding
+    {
+        public string npcId;
+        public Sprite headIcon;
+    }
+
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject speakerNameObject;
     [SerializeField] private TMP_Text speakerNameText;
@@ -21,6 +28,10 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject portraitObject;
     [SerializeField] private Image portraitImage;
     [SerializeField] private NpcPortraitBinding[] npcPortraits;
+
+    [Header("Dialogue Head Icons")]
+    [SerializeField] private Image headIconImage;
+    [SerializeField] private NpcHeadIconBinding[] npcHeadIcons;
 
     [Header("View-specific Portrait Visibility")]
     [SerializeField] private ViewManager viewManager;
@@ -35,9 +46,18 @@ public class DialogueUI : MonoBehaviour
         Transform headIcon = dialoguePanel.transform.Find("HeadIconFrame");
         Transform nameBox = dialoguePanel.transform.Find("NameBoxBG");
 
+        Sprite headSprite = FindHeadIcon(npcId);
+
+        if (headIconImage != null)
+        {
+            headIconImage.sprite = headSprite;
+        }
+
         if (headIcon != null)
         {
-            headIcon.gameObject.SetActive(hasSpeaker);
+            headIcon.gameObject.SetActive(
+                hasSpeaker && headIconImage != null && headSprite != null
+            );
         }
 
         if (nameBox != null)
@@ -79,6 +99,24 @@ public class DialogueUI : MonoBehaviour
         {
             portraitObject.SetActive(false);
         }
+    }
+
+    private Sprite FindHeadIcon(string npcId)
+    {
+        if (string.IsNullOrEmpty(npcId) || npcHeadIcons == null)
+        {
+            return null;
+        }
+
+        foreach (NpcHeadIconBinding binding in npcHeadIcons)
+        {
+            if (binding.npcId == npcId)
+            {
+                return binding.headIcon;
+            }
+        }
+
+        return null;
     }
 
     private Sprite FindPortrait(string npcId)
