@@ -16,6 +16,7 @@ public class KeyItemViewerUI : MonoBehaviour
     [SerializeField] private Button itemButton;
     [SerializeField] private TMP_Text itemButtonText;
 
+    [SerializeField] private GameObject bagPanel;
     [SerializeField] private GameObject viewerPanel;
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text bodyText;
@@ -140,6 +141,11 @@ public class KeyItemViewerUI : MonoBehaviour
         if (bodyText != null)
         {
             bodyText.text = item.desc;
+        }
+
+        if (bagPanel != null)
+        {
+            bagPanel.SetActive(false);
         }
 
         if (viewerPanel != null)
