@@ -4431,6 +4431,8 @@ MonoBehaviour:
   npcHeadIcons:
   - npcId: npc_bh
     headIcon: {fileID: 21300000, guid: d1bc4f2c49536419fa7297ff16f926bf, type: 3}
+  - npcId: npc_old_woman
+    headIcon: {fileID: 21300000, guid: 2c102a5dd55e747a99df2a46bc38e079, type: 3}
   viewManager: {fileID: 1838948916}
 --- !u!114 &896588856
 MonoBehaviour:
