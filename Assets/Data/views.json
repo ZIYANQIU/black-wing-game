@@ -24,6 +24,11 @@
       "view_id": "view_forest_fork",
       "map_id": "map_forest",
       "background": "bg_forest_fork"
+    },
+    {
+      "view_id": "view_forest",
+      "map_id": "map_forest",
+      "background": "bg_forest"
     }
   ]
 }

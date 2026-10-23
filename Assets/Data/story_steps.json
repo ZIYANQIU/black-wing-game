@@ -568,7 +568,7 @@
             "condition": {
               "type": "always"
             },
-            "next_step": "step_fork_route_up_001"
+            "next_step": "step_fork_change_view_up_001"
           },
           {
             "choice_id": "fork_middle",
@@ -576,7 +576,7 @@
             "condition": {
               "type": "always"
             },
-            "next_step": "step_fork_route_middle_001"
+            "next_step": "step_fork_change_view_middle_001"
           },
           {
             "choice_id": "fork_down",
@@ -584,11 +584,25 @@
             "condition": {
               "type": "always"
             },
-            "next_step": "step_fork_route_down_001"
+            "next_step": "step_fork_change_view_down_001"
           }
         ]
       },
       "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_change_view_up_001",
+      "type": "change_view",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "view_id": "view_forest"
+      },
+      "next_step": "step_fork_route_up_001",
       "is_save": false
     },
     {
@@ -616,6 +630,20 @@
       "is_save": false
     },
     {
+      "step_id": "step_fork_change_view_down_001",
+      "type": "change_view",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "view_id": "view_forest"
+      },
+      "next_step": "step_fork_route_down_001",
+      "is_save": false
+    },
+    {
       "step_id": "step_fork_route_down_001",
       "type": "narration",
       "speaker_id": null,
@@ -637,6 +665,20 @@
       },
       "params": {},
       "next_step": "step_fork_route_down_003",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_change_view_middle_001",
+      "type": "change_view",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "view_id": "view_forest"
+      },
+      "next_step": "step_fork_route_middle_001",
       "is_save": false
     },
     {
