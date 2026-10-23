@@ -395,6 +395,18 @@
         "type": "always"
       },
       "params": {},
+      "next_step": "step_station_depart_005",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_depart_005",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "【操作提示】点击路牌调查线索。点击画面左右两侧可以翻转路牌，别忘了查看背面。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
       "next_step": null,
       "is_save": false
     },
