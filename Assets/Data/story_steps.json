@@ -537,6 +537,18 @@
         "type": "always"
       },
       "params": {},
+      "next_step": "step_fork_choose_path_intro_001",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_choose_path_intro_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "【开发占位：请选择要走的小径】",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
       "next_step": "step_fork_choose_path_001",
       "is_save": false
     },
@@ -544,7 +556,7 @@
       "step_id": "step_fork_choose_path_001",
       "type": "choice",
       "speaker_id": null,
-      "text": "【开发占位：请选择要走的小径】",
+      "text": "",
       "condition": {
         "type": "always"
       },
