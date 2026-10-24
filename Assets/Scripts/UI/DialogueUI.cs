@@ -78,7 +78,8 @@ public class DialogueUI : MonoBehaviour
         if (portraitObject != null)
         {
             bool hideLargePortrait = viewManager != null
-                && viewManager.CurrentViewId == "view_forest_fork";
+                && (viewManager.CurrentViewId == "view_forest_fork"
+                    || viewManager.CurrentViewId == "view_forest");
 
             portraitObject.SetActive(hasPortrait && !hideLargePortrait);
         }
