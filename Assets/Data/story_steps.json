@@ -402,7 +402,7 @@
       "step_id": "step_station_depart_005",
       "type": "narration",
       "speaker_id": null,
-      "text": "【操作提示】点击路牌调查线索。点击画面左右两侧可以翻转路牌，别忘了查看背面。",
+      "text": "*调查一下路牌线，别忘了查看背面。",
       "condition": {
         "type": "always"
       },
@@ -506,7 +506,7 @@
       "step_id": "step_fork_inspect_back_001",
       "type": "narration",
       "speaker_id": null,
-      "text": "【临时占位：路牌背面调查旁白待补充】",
+      "text": "你绕着路牌走了半圈，从背后看，柱身的锈蚀和磨损更加严重。木牌背面也只有模糊不清的纹理和风雨留下的痕迹。唯一有些奇怪的，就是那几个不太对得上的钉子孔。",
       "condition": {
         "type": "always"
       },
@@ -544,7 +544,7 @@
       "step_id": "step_fork_choose_path_intro_001",
       "type": "narration",
       "speaker_id": null,
-      "text": "【开发占位：请选择要走的小径】",
+      "text": "你从容地走向了",
       "condition": {
         "type": "always"
       },
