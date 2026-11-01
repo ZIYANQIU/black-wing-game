@@ -582,7 +582,7 @@
       "step_id": "step_fork_choose_path_intro_001",
       "type": "narration",
       "speaker_id": null,
-      "text": "你从容地走向了",
+      "text": "你从容地走向了——",
       "condition": {
         "type": "always"
       },
