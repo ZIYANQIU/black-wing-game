@@ -776,7 +776,7 @@
         "type": "always"
       },
       "params": {},
-      "next_step": null,
+      "next_step": "step_demo_end_up_001",
       "is_save": false
     },
     {
@@ -968,7 +968,7 @@
         "type": "always"
       },
       "params": {},
-      "next_step": null,
+      "next_step": "step_demo_end_down_001",
       "is_save": false
     },
     {
@@ -1004,6 +1004,48 @@
         "type": "always"
       },
       "params": {},
+      "next_step": "step_demo_end_middle_001",
+      "is_save": false
+    },
+    {
+      "step_id": "step_demo_end_up_001",
+      "type": "set_flag",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "flag_id": "flag_demo_end_up"
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_demo_end_down_001",
+      "type": "set_flag",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "flag_id": "flag_demo_end_down"
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_demo_end_middle_001",
+      "type": "set_flag",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "flag_id": "flag_demo_end_middle"
+      },
       "next_step": null,
       "is_save": false
     }
