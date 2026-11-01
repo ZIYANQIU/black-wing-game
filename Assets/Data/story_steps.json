@@ -383,6 +383,18 @@
         "type": "always"
       },
       "params": {},
+      "next_step": "step_station_depart_observe_001",
+      "is_save": false
+    },
+    {
+      "step_id": "step_station_depart_observe_001",
+      "type": "dialogue",
+      "speaker_id": "npc_bh",
+      "text": "哈，一路上最显眼的“线索”，先观察一下。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
       "next_step": "step_station_depart_004",
       "is_save": false
     },
@@ -506,7 +518,7 @@
       "step_id": "step_fork_inspect_back_001",
       "type": "narration",
       "speaker_id": null,
-      "text": "【临时占位：路牌背面调查旁白待补充】",
+      "text": "你绕着路牌走了半圈，从背后看，柱身的锈蚀和磨损更加严重。木牌背面也只有模糊不清的纹理和风雨留下的痕迹。唯一有些奇怪的，就是那几个不太对得上的钉子孔。",
       "condition": {
         "type": "always"
       },
@@ -516,6 +528,32 @@
     },
     {
       "step_id": "step_fork_inspect_back_002",
+      "type": "set_flag",
+      "speaker_id": null,
+      "text": "",
+      "condition": {
+        "type": "always"
+      },
+      "params": {
+        "flag_id": "flag_fork_back_observed"
+      },
+      "next_step": null,
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_nails_001",
+      "type": "narration",
+      "speaker_id": null,
+      "text": "你注意到每块木牌背后的孔洞都数量不一，它们为你指明了正确的方向。",
+      "condition": {
+        "type": "always"
+      },
+      "params": {},
+      "next_step": "step_fork_inspect_nails_002",
+      "is_save": false
+    },
+    {
+      "step_id": "step_fork_inspect_nails_002",
       "type": "set_flag",
       "speaker_id": null,
       "text": "",
@@ -544,7 +582,7 @@
       "step_id": "step_fork_choose_path_intro_001",
       "type": "narration",
       "speaker_id": null,
-      "text": "【开发占位：请选择要走的小径】",
+      "text": "你从容地走向了",
       "condition": {
         "type": "always"
       },
