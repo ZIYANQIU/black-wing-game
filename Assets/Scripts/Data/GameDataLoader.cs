@@ -25,6 +25,38 @@ public class GameDataLoader : MonoBehaviour
     private void Start()
     {
         LoadAllData();
+
+        // Restore a requested save instead of starting a new game.
+        if (SaveManager.TryGetPendingLoad(out SaveData pending))
+        {
+            SaveManager saveManager =
+                FindFirstObjectByType<SaveManager>();
+
+            if (saveManager == null)
+            {
+                Debug.LogError(
+                    "Load aborted: SaveManager not found in scene."
+                );
+                return;
+            }
+
+            if (saveManager.RestoreLoadedData(pending))
+            {
+                SaveManager.ClearPendingLoad();
+                Debug.Log("Loaded saved game successfully.");
+            }
+            else
+            {
+                Debug.LogError(
+                    "Load failed. New game initialization skipped."
+                );
+            }
+
+            return;
+        }
+
+        // No pending save: start a normal new game.
+        viewManager.InitializeStartingView();
     }
 
     private void LoadAllData()
@@ -68,6 +100,5 @@ public class GameDataLoader : MonoBehaviour
         Debug.Log($"Loaded StorySteps: {storyFile.story_steps.Length}");
         Debug.Log($"Loaded StoryTriggers: {triggerFile.story_triggers.Length}");
 
-        viewManager.InitializeStartingView();
     }
 }

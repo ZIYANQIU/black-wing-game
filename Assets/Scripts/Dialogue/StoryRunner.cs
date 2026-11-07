@@ -34,11 +34,136 @@ public class StoryRunner : MonoBehaviour
     private bool hasPendingStoryEndedNotification;
 
     public event Action OnStoryEnded;
+    public event Action<string> OnAutosaveCheckpoint;
+
+    // The currently displayed dialogue, narration, or choice.
+    public string ActiveStoryStepId
+    {
+        get
+        {
+            if (currentChoiceStep != null)
+                return currentChoiceStep.step_id;
+
+            if (currentStep != null)
+                return currentStep.step_id;
+
+            return string.Empty;
+        }
+    }
 
     public bool IsPlaying =>
         currentStep != null ||
         currentChoiceStep != null ||
         isExecutingAction;
+
+    // Restore a displayed step without executing story actions.
+    // GameState and GameDatabase must be restored/initialized first.
+    public bool RestoreVisibleStep(string stepId)
+    {
+        if (database == null || dialogueUI == null || choiceUI == null)
+        {
+            Debug.LogError("StoryRunner: Missing restore references.");
+            return false;
+        }
+
+        StoryStepData step = null;
+        List<ChoiceData> visibleChoices = null;
+
+        if (!string.IsNullOrEmpty(stepId))
+        {
+            step = database.GetStoryStep(stepId);
+
+            if (step == null ||
+                (step.type != "dialogue" &&
+                 step.type != "narration" &&
+                 step.type != "choice"))
+            {
+                Debug.LogError($"Cannot restore story step: {stepId}");
+                return false;
+            }
+
+            if (step.type == "choice")
+            {
+                if (conditionEvaluator == null)
+                    return false;
+
+                ChoiceData[] choices = step.@params?.choices;
+
+                if (choices == null || choices.Length == 0)
+                    return false;
+
+                visibleChoices = new List<ChoiceData>();
+                HashSet<string> seenIds = new HashSet<string>();
+
+                foreach (ChoiceData choice in choices)
+                {
+                    if (choice == null ||
+                        string.IsNullOrEmpty(choice.choice_id) ||
+                        !seenIds.Add(choice.choice_id) ||
+                        string.IsNullOrEmpty(choice.text) ||
+                        string.IsNullOrEmpty(choice.next_step))
+                    {
+                        Debug.LogError("Invalid saved choice step.");
+                        return false;
+                    }
+
+                    if (conditionEvaluator.Evaluate(choice.condition))
+                        visibleChoices.Add(choice);
+                }
+
+                if (visibleChoices.Count == 0)
+                {
+                    Debug.LogError("Saved choice has no available options.");
+                    return false;
+                }
+            }
+        }
+
+        // Validation succeeded. Replace the displayed state.
+        hasPendingStoryEndedNotification = false;
+        didStoryEndDuringStart = false;
+        didCurrentStartFail = false;
+        currentStep = null;
+        currentChoiceStep = null;
+        isChoiceLocked = false;
+
+        dialogueUI.Hide();
+        choiceUI.Hide();
+
+        if (step == null)
+            return true;
+
+        if (step.type == "choice")
+        {
+            currentChoiceStep = step;
+            dialogueUI.Show(null, step.text, null);
+            choiceUI.Show(visibleChoices, SelectChoice);
+        }
+        else
+        {
+            currentStep = step;
+
+            if (step.type == "narration")
+            {
+                dialogueUI.Show(null, step.text, null);
+            }
+            else
+            {
+                NpcData speaker = database.GetNpc(step.speaker_id);
+                string speakerName =
+                    speaker != null ? speaker.name : step.speaker_id;
+
+                dialogueUI.Show(
+                    speakerName,
+                    step.text,
+                    step.speaker_id
+                );
+            }
+        }
+
+        Debug.Log($"Restored visible story step: {stepId}");
+        return true;
+    }
 
     public bool StartStory(string stepId)
     {
@@ -234,6 +359,13 @@ public class StoryRunner : MonoBehaviour
 
             PlayStep(step.next_step);
         }
+        // Notify only after this step and its chained actions complete.
+        // SaveManager will defer the actual disk write.
+        if (step.is_save && !didCurrentStartFail)
+        {
+            OnAutosaveCheckpoint?.Invoke(step.step_id);
+        }
+
     }
 
     private void PlayActionStep(StoryStepData step)

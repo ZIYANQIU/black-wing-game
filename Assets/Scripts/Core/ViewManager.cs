@@ -65,6 +65,29 @@ public class ViewManager : MonoBehaviour
         storyTriggerSystem.CheckTriggersForCurrentView();
     }
 
+    // Restore a saved view without checking story triggers.
+    // Call only after game data and saved GameState are ready.
+    public bool RestoreViewWithoutTriggers(string viewId)
+    {
+        if (database == null ||
+            string.IsNullOrEmpty(viewId) ||
+            database.GetView(viewId) == null)
+        {
+            Debug.LogError(
+                $"Cannot restore view: {viewId}"
+            );
+            return false;
+        }
+
+        feedbackUI?.HideMessage();
+
+        CurrentViewId = viewId;
+        ShowView(viewId);
+
+        Debug.Log($"Restored view without triggers: {viewId}");
+        return true;
+    }
+
     private void ShowView(string viewId)
     {
         foreach (ViewContainerBinding binding in viewContainers)
